@@ -10,7 +10,7 @@
     "Security"
   ],
   "author": "Nicholas Starke",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "commander": "^2.8.1",
     "pcap": "^2.0.1",
