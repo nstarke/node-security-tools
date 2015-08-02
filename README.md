@@ -14,3 +14,10 @@ Connect on port 80 to localhost:
 ```
 node netat.js --target-port 80 --target-address localhost
 ```
+
+### TCP-Proxy.js
+
+Listen on port 8000 and forward to port 80 on (most) home routers (192.168.1.1).
+```
+node tcp-proxy.js --local-port 8000 --remote-host 192.168.1.1 --remote-port 80
+```

@@ -1,6 +1,6 @@
 {
   "name": "node-security-tools",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A collection of security tools written in node",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
   "author": "Nicholas Starke",
   "license": "MIT",
   "dependencies": {
+    "buffer-hexdump": "^1.0.0",
     "commander": "^2.8.1",
     "pcap": "^2.0.1",
     "readline": "0.0.8"
