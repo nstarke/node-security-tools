@@ -3,7 +3,6 @@ var program = require('commander');
 var exec = require('child_process').exec;
 var readline = require('readline');
 var util = require('util');
-var fs = require('fs');
 
 program
   .option('-a, --listen-address [listen-address]' , 'Listen Address')
