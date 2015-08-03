@@ -5,6 +5,7 @@ var hexdump = require('buffer-hexdump');
 var fs = require('fs');
 var util = require('util');
 var readline = require('readline');
+var crypto = require('crypto');
 
 program
     .option('-r, --remote-host [remote-host]', 'Remote Host')
@@ -64,8 +65,9 @@ function connect(password, key) {
 
             connection.on('tcp connection', function (info, accept, reject){
                   accept().on('data', function(data){
-                      console.log(util.format('[<==] TCP data forwarded from: %s:%s', info.srcIP, info.srcPort));
-                      console.log(hexdump(data));
+                      fs.writeFile(crypto.pseudoRandomBytes(8).toString('hex'), data, function(err){
+                          //do nothing
+                      });
                   });
             });
 

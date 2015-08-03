@@ -31,5 +31,5 @@ node ssh-tunnel.js --remote-host 192.168.0.156 -u username
 
 Connect to remote address 192.168.0.156 and open up a port on 192.168.0.156 to pipe data back
 ```
-node ssh-tunnl.js --remote-host 192.168.0.156 -u username -f 8000
+node ssh-tunnel.js --remote-host 192.168.0.156 -u username -f 8000
 ```
