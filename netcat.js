@@ -5,7 +5,7 @@ var readline = require('readline');
 var util = require('util');
 
 program
-  .option('-a, --listen-address [listen-address]' , 'Listen Address')
+  .option('-a, --listen-host [listen-host]' , 'Listen Host')
   .option('-p, --listen-port [listen-port]', 'Listen Port')
   .option('-t, --target-host [target-host]', 'Target Host')
   .option('-q, --target-port [target-port]', 'Target Port')
@@ -48,7 +48,7 @@ if (program.listenPort){
                 socket.write('Command Executed: ' + program.execute + '\n');
             });
         }
-    }).listen(program.listenPort, program.listenAddress || '0.0.0.0');
+    }).listen(program.listenPort, program.listenHost || '0.0.0.0');
 } else if (program.targetHost && program.targetPort) {
     var client = net.connect( { port: program.targetPort, host: program.targetHost }, function(){
         var rl = readline.createInterface({
