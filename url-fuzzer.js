@@ -1,5 +1,8 @@
+// Only works on small word lists because of non-blocking nature
 var program = require('commander');
 var fs = require('fs');
+var readline = require('readline');
+var request = require('request');
 
 program
   .option('-b, --base-url [base-url]', 'Base URL to fuzz against')
@@ -34,4 +37,23 @@ if (startErrors.length) {
     process.exit(1);
 }
 
-// Implement Fuzz logic
+var responseCodes = program.responseCodes.split(',');
+
+var iface = readline.createInterface({
+    input: fs.createReadStream(program.wordlist),
+    output: process.stdout,
+    terminal: false
+});
+
+iface.on('line', function(line) {
+    var baseUrl = program.baseUrl.replace('FUZZ', line.trim());
+    request.get(baseUrl).on('response', function(res) {
+        for (var i = 0; i < responseCodes.length; i++) {
+            var code = responseCodes[i];
+            if (code == res.statusCode) {
+                console.log(baseUrl);
+                break;
+            }
+        }
+    });
+});
