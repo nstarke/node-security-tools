@@ -33,3 +33,11 @@ Connect to remote address 192.168.0.156 and open up a port on 192.168.0.156 to p
 ```
 node ssh-tunnel.js --remote-host 192.168.0.156 -u username -f 8000
 ```
+
+### URL-Fuzzer.js
+
+Fuzz base url with word list and check for response codes 200 and 201:
+```
+node url-fuzzer.js --base-url http://localhost:3000/FUZZ.php --wordlist /path/to/wordlist --response-codes 200,201
+```
+Note that this only works on small wordlists because of its asynchronous, non-blocking nature.
